@@ -22,6 +22,20 @@ class SimpleTree
   end
 
   def dfs(el)
+    if @value == el
+      return true
+    else
+      left_dfs = false
+      if !!@left
+        left_dfs = @left.dfs(el)
+      end
+
+      right_dfs = false
+      if !!@right
+        right_dfs = @right.dfs(el)
+      end
+      return left_dfs || right_dfs
+    end
   end
 end
 
